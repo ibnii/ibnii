@@ -69,8 +69,8 @@
 <rect x="0" y="0" width="900" height="40" fill="url(#scanGrad3)" style="animation: scan 6s linear infinite;"/>
 
 <text x="450" y="110" text-anchor="middle" class="name" filter="url(#softglow3)">IBNI ANDARTA</text>
-<text x="447" y="110" text-anchor="middle" class="name" fill="#ffb347" style="animation: glitch 7s infinite;">AMIR ZAMANI</text>
-<text x="453" y="110" text-anchor="middle" class="name" fill="#dc2626" style="animation: glitch 7s infinite .1s;">AMIR ZAMANI</text>
+<text x="447" y="110" text-anchor="middle" class="name" fill="#ffb347" style="animation: glitch 7s infinite;">IBNI ANDARTA</text>
+<text x="453" y="110" text-anchor="middle" class="name" fill="#dc2626" style="animation: glitch 7s infinite .1s;">IBNI ANDARTA</text>
 
 <text x="450" y="146" text-anchor="middle" class="sub">POLINEMA STUDENTS · 254107020258</text>
 
