@@ -1,88 +1,49 @@
-<svg width="900" height="380" viewBox="0 0 900 380" xmlns="http://www.w3.org/2000/svg">
-<defs>
-<style>
-  .name { font-family: 'Segoe UI', Arial, sans-serif; font-weight: 800; font-size: 54px; letter-spacing: 6px; fill: #ffffff; }
-  .sub { font-family: 'Segoe UI', Arial, sans-serif; font-weight: 600; font-size: 17px; letter-spacing: 1px; fill: #f5a623; }
-  .ach { font-family: 'Fira Code', monospace; font-weight: 600; font-size: 17px; fill: #ffb347; }
-  .status-text { font-family: 'Segoe UI', Arial, sans-serif; font-weight: 700; font-size: 14px; letter-spacing: 2px; fill: #ffffff; }
-  .corner { stroke: #f5a623; stroke-width: 2; fill: none; opacity: .8; }
-  .glowbar { animation: pulse 2.6s ease-in-out infinite; }
-  .trace { fill: none; stroke-width: 2; stroke-linecap: round; stroke-dasharray: 30 250; animation: travel 3.2s linear infinite; }
-  @keyframes travel { to { stroke-dashoffset: -400; } }
-  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .25; } }
-  @keyframes scan { 0% { transform: translateY(-40px); } 100% { transform: translateY(400px); } }
-  @keyframes glitch {
-    0%, 92%, 100% { transform: translate(0,0); opacity: 0; }
-    93% { transform: translate(-3px,1px); opacity: .7; }
-    95% { transform: translate(3px,-1px); opacity: .7; }
-    97% { transform: translate(-2px,0); opacity: .5; }
-  }
-  .clip1 rect { animation: type1 12s infinite; }
-  .clip2 rect { animation: type2 12s infinite; }
-  .clip3 rect { animation: type3 12s infinite; }
-  @keyframes type1 { 0%{width:0} 3%{width:0} 11%{width:194px} 27%{width:194px} 33%{width:0} 100%{width:0} }
-  @keyframes type2 { 0%{width:0} 33%{width:0} 36%{width:0} 44%{width:296px} 60%{width:296px} 66%{width:0} 100%{width:0} }
-  @keyframes type3 { 0%{width:0} 66%{width:0} 69%{width:0} 77%{width:438px} 95%{width:438px} 100%{width:0} }
-</style>
+<svg width="900" height="400" viewBox="0 0 900 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="hero-title hero-desc">
+  <title id="hero-title">ibni andarta — Mahasiswa Teknologi Informasi, Politeknik Negeri Malang</title>
+  <desc id="hero-desc">Kartu terminal monokrom: prompt ibni@polinema:~$ whoami, nama ibni andarta, dan foto profil 1-bit.</desc>
 
-<radialGradient id="bgGrad3" cx="50%" cy="20%" r="90%">
-  <stop offset="0%" stop-color="#1c0a0a"/>
-  <stop offset="45%" stop-color="#0d0605"/>
-  <stop offset="100%" stop-color="#020103"/>
-</radialGradient>
+  <defs>
+    <pattern id="dot-grid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="1" fill="#e8e8e3" fill-opacity="0.1"/>
+    </pattern>
+    <radialGradient id="dot-fade" cx="78%" cy="46%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9"/>
+      <stop offset="55%" stop-color="#ffffff" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <mask id="dot-mask">
+      <rect width="900" height="400" fill="url(#dot-fade)"/>
+    </mask>
+  </defs>
 
-<radialGradient id="vignette3" cx="50%" cy="50%" r="75%">
-  <stop offset="60%" stop-color="#000000" stop-opacity="0"/>
-  <stop offset="100%" stop-color="#000000" stop-opacity="0.55"/>
-</radialGradient>
+  <rect width="900" height="400" fill="#0a0a0a"/>
+  <rect width="900" height="400" fill="url(#dot-grid)" mask="url(#dot-mask)"/>
 
-<linearGradient id="frameGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
-  <stop offset="0%" stop-color="#f5a623"><animate attributeName="stop-color" values="#f5a623;#dc2626;#f5a623" dur="6s" repeatCount="indefinite"/></stop>
-  <stop offset="100%" stop-color="#dc2626"><animate attributeName="stop-color" values="#dc2626;#f5a623;#dc2626" dur="6s" repeatCount="indefinite"/></stop>
-</linearGradient>
+  <g font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+    <circle cx="43.5" cy="59.5" r="3.5" fill="#e8e8e3">
+      <animate attributeName="opacity" values="1;1;0;0;1" keyTimes="0;0.45;0.5;0.95;1" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <text x="56" y="64" fill="#8c8c86" font-size="13" letter-spacing="1.04">MAHASISWA AKTIF · MALANG, ID</text>
 
-<linearGradient id="scanGrad3" x1="0%" y1="0%" x2="0%" y2="100%">
-  <stop offset="0%" stop-color="#ffffff" stop-opacity="0"/>
-  <stop offset="50%" stop-color="#ffffff" stop-opacity="0.05"/>
-  <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
-</linearGradient>
+    <text x="40" y="104" font-size="15" letter-spacing="-0.2"><tspan fill="#8c8c86">ibni@polinema:~$</tspan><tspan fill="#b3b3ad"> whoami</tspan></text>
 
-<filter id="glow3" x="-60%" y="-60%" width="220%" height="220%">
-  <feGaussianBlur stdDeviation="4" result="blur"/>
-  <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-</filter>
-<filter id="softglow3" x="-80%" y="-80%" width="260%" height="260%">
-  <feGaussianBlur stdDeviation="10" result="blur"/>
-  <feMerge><feMergeNode in="blur"/><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-</filter>
-</defs>
+    <text x="40" y="176" fill="#e8e8e3" font-size="62" font-weight="600" letter-spacing="-3.7" textLength="410" lengthAdjust="spacing">ibni andarta</text>
+    <rect x="460" y="130" width="8" height="46" fill="#e8e8e3">
+      <animate attributeName="opacity" values="1;1;0;0;1" keyTimes="0;0.49;0.5;0.99;1" dur="1.1s" repeatCount="indefinite"/>
+    </rect>
 
-<rect x="0" y="0" width="900" height="380" rx="18" fill="url(#bgGrad3)"/>
-<rect x="0" y="0" width="900" height="380" rx="18" fill="url(#vignette3)"/>
-<rect x="3" y="3" width="894" height="374" rx="16" fill="none" stroke="url(#frameGrad3)" stroke-width="2" opacity="0.6"/>
+    <text x="40" y="216" fill="#e8e8e3" font-size="17" letter-spacing="-0.3">Mahasiswa Teknologi Informasi</text>
+    <text x="40" y="242" font-size="15" letter-spacing="-0.2" fill="#b3b3ad">Politeknik Negeri Malang</text>
 
-<path class="corner" d="M24 60 L24 24 L60 24"/>
-<path class="corner" d="M876 60 L876 24 L840 24"/>
-<path class="corner" d="M24 320 L24 356 L60 356"/>
-<path class="corner" d="M876 320 L876 356 L840 356"/>
+    <text x="40" y="280" fill="#b3b3ad" font-size="16" letter-spacing="-0.2">Membangun aplikasi web dan tools praktis—</text>
+    <text x="40" y="304" fill="#b3b3ad" font-size="16" letter-spacing="-0.2">dari skema database sampai antarmuka.</text>
 
-<rect x="0" y="0" width="900" height="40" fill="url(#scanGrad3)" style="animation: scan 6s linear infinite;"/>
+    <rect x="40" y="338" width="540" height="1" fill="#262626"/>
+    <text x="40" y="362" fill="#8c8c86" font-size="13" letter-spacing="0.2">Malang, ID</text>
+    <text x="580" y="362" fill="#8c8c86" font-size="13" letter-spacing="0.2" text-anchor="end">ibni.me</text>
+  </g>
 
-<text x="450" y="110" text-anchor="middle" class="name" filter="url(#softglow3)">IBNI ANDARTA</text>
-<text x="447" y="110" text-anchor="middle" class="name" fill="#ffb347" style="animation: glitch 7s infinite;">IBNI ANDARTA</text>
-<text x="453" y="110" text-anchor="middle" class="name" fill="#dc2626" style="animation: glitch 7s infinite .1s;">IBNI ANDARTA</text>
-
-<text x="450" y="146" text-anchor="middle" class="sub">POLINEMA STUDENTS · 254107020258</text>
-
-<rect class="glowbar" x="380" y="164" width="140" height="2.5" fill="#ffb347" filter="url(#glow3)"/>
-
-<clipPath id="clip1" class="clip1"><rect x="353" y="215" width="0" height="30"/></clipPath>
-<clipPath id="clip2" class="clip2"><rect x="302" y="215" width="0" height="30"/></clipPath>
-<clipPath id="clip3" class="clip3"><rect x="231" y="215" width="0" height="30"/></clipPath>
-
-<g>
-<rect x="290" y="280" width="325" height="42" rx="10" fill="#2a1006" stroke="#f5a623" stroke-width="1.4" filter="url(#glow3)"/>
-<rect class="trace" x="290" y="280" width="325" height="42" rx="10" stroke="#f5a623"/>
-<text x="454" y="306" text-anchor="middle" class="status-text">WELCOME TO MY GITHUB PROFILE</text>
-</g>
+  <image x="620" y="40" width="240" height="320" preserveAspectRatio="none" image-rendering="pixelated" href="data:image/png;base64,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"/>
+  <rect x="619.5" y="39.5" width="241" height="321" fill="none" stroke="#262626" stroke-width="1"/>
+  <rect x="0.5" y="0.5" width="899" height="399" fill="none" stroke="#262626" stroke-width="1"/>
 </svg>
