@@ -10,7 +10,7 @@
  *   node scripts/make-dither.mjs [source.png] [target.svg]
  */
 import { execFileSync } from 'node:child_process';
-import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -29,6 +29,12 @@ const rawPath = resolve(cacheDir, 'portrait-dither.gray');
 const pngPath = resolve(cacheDir, 'portrait-dither.png');
 
 const width = 168;
+
+if (!existsSync(source)) {
+    throw new Error(
+        `Source image not found: ${source}\nUsage: node scripts/make-dither.mjs [source.png] [target.svg]`
+    );
+}
 
 const rgb = execFileSync(
     'ffmpeg',
