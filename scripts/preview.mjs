@@ -82,5 +82,6 @@ writeFileSync(
 `
 );
 
-execFileSync('open', [output]);
+const opener = process.platform === 'darwin' ? 'open' : process.platform === 'win32' ? 'explorer' : 'xdg-open';
+execFileSync(opener, [output]);
 console.log(`preview written to ${output}`);
